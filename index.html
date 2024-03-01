@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charsets="UTF-8">
+    <title>Learn Easy</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" contents="width=device-width,initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="logo_content">
+             <div class="logo">
+                <i class='bx bxs-book-reader'></i>
+                <div class="logo_name">LearnEasy</div>
+             </div>
+             <i class='bx bx-menu' id="btn"></i>
+            </div>
+            <ul class="nav_list">
+            <li>
+                <a href="#">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Search...">
+                </a>
+                <span class="tooltip">Search</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-bookmarks'></i>
+                    <span class="links_name">Subjects</span>
+                </a>
+                <span class="tooltip">Subjects</span>
+            </li> 
+            <li>
+                <a href="#">
+                    <i class='bx bxs-videos'></i>
+                    <span class="links_name">Videos</span>
+                </a>
+                <span class="tooltip">Videos</span> 
+            </li> 
+            <li>
+                <a href="#">
+                    <i class='bx bxs-edit-alt'></i>
+                    <span class="links_name">Test</span>
+                </a>
+                <span class="tooltip">Test</span> 
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-book-bookmark'></i>
+                    <span class="links_name">Assignment</span>
+                </a>
+                <span class="tooltip">Assignment</span> 
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-cog'></i>
+                    <span class="links_name">Settings</span>
+                </a>
+                <span class="tooltip">Settings</span> 
+            </li>
+            </ul>
+            <div class="profile_content">
+                <div class="profile">
+                    <div class="profile_details">
+                        <img src="profile.jpg" alt=""> 
+                      <div class="name_job">
+                        <div class="name">Sanju R</div>
+                        <div class="job">Web Designer</div>
+                      </div>
+                    </div>
+                    <i class='bx bx-log-out' id="log_out"></i>
+                </div>
+            </div>
+        </div>
+    <!--    <div class="overlay-text">Learn Today,Lead Tomorrow.</div>-->
+        
+        <script>
+            let btn = document.querySelector("#btn");
+            let sidebar = document.querySelector(".sidebar");
+            let searchBtn = document.querySelector(".bx-search");
+
+            btn.onclick = function() {
+                sidebar.classList.toggle("active");
+            }
+            searchBtn.onclick = function() {
+                sidebar.classList.toggle("active");
+            }
+
+
+        </script>
+        <img src="https://live.staticflickr.com/8078/8314929977_28fd740070_b.jpg" width="1250" height="610">
+
+    </body>
