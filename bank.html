@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bank</title>
+        <link rel="stylesheet" href="bank.css">
+    </head>
+    <body>
+        
+    <table id="bankTable">
+        <tr>
+            <th>Customer Name</th>
+            <th>Account Type</th>
+            <th>Balance</th>
+            <th>Date of Creation</th>
+            <th>Bank Name</th>
+            <th>Branch Name</th>
+            <th>PAN Card Number</th>
+        </tr>
+        <!-- Bank objects will be dynamically added here -->
+    </table>    
+       <button onclick="displaybalancegreaterthan200()">DispalyBank>200</button>
+       <button onclick="deductmonthlyfees()">Deduct monthly fees</button>
+       <button onclick="displayBalanceGreaterThan200Chennai()">Display Balance > 200 and Chennai Branch</button>
+       <button onclick="addNewBank()">Add NewBank</button>
+       <button onclick="deleteBank() ">Delete Bank</button>
+       <button onclick="calculateTotalBalance()">Total Balance</button>
+       <script>
+        let bankObjectsArray=[
+            {
+                customerName:"Sanju",
+                accountType:"Savings",
+                balance:300,
+                dateofcreation:"12-3-2022",
+                bankName:"Canara Bank",
+                branchName:"Tondairpet",
+                pancardnumber:"SGDJSO23RG"
+            }
+        ];
+        function displayBanksInTable()
+        {
+            const table=document.getElementById('bankTable');
+            table.innerHTML = '<tr><th>Customer Name</th><th>Account Type</th><th>Balance</th><th>Date of Creation</th><th>Bank Name</th><th>Branch Name</th><th>PAN Card Number</th></tr>';
+            
+            bankObjectsArray.forEach(account=>{
+                const row=table.insertRow();
+                for(const key in account){
+                    const cell=row.insertCell();
+                    cell.textContent=account[key];
+                }
+            });
+        }
+        function displaybalancegreaterthan200()
+        {
+            const filteredAccounts = bankObjectsArray.filter(account => account.balance > 200);
+            console.log(filteredAccounts);        
+        }
+        function deductmonthlyfees()
+        {
+            bankObjectsArray.forEach(account =>{
+                account.balance *=0.9;
+            });
+            displayBanksInTable();
+        }
+        function displayBalanceGreaterThan200Chennai() {
+            const filteredAccounts = bankObjectsArray.filter(account => account.balance > 200 && account.branchName === "Chennai");
+            console.log(filteredAccounts);
+        }
+        function addNewBank() {
+            const newBankObject1 = {
+                customerName: "Sharan",
+                accountType: "Current",
+                balance: 1500,
+                dateOfCreation: "8-05-2022",
+                bankName: "Indian Bank",
+                branchName: "Chennai",
+                panCardNumber: "LMNOP9012Q"
+            };
+            bankObjectsArray.push(newBankObject1);
+            displayBanksInTable();
+        }
+
+        function deleteBank() {
+            if (bankObjectsArray.length > 0) {
+                bankObjectsArray.splice(0, 1); 
+                displayBanksInTable();
+            }
+        }
+
+        function calculateTotalBalance() {
+            const totalBalance = bankObjectsArray.reduce((total, account) => total + account.balance, 0);
+            console.log("Total balance of all bank accounts:", totalBalance);
+        }
+
+    
+        displayBanksInTable();
+       </script>
+    </body>
+</html>
